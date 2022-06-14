@@ -5,11 +5,11 @@ import { MatChipInputEvent } from '@angular/material/chips';
 import { ApiService } from './../../shared/api.service';
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 
-export interface Account {
+export interface Account_number {
   name: string;
 }
 
-type AccountNumber = any
+type account_number = any
 
 @Component({
   selector: 'app-add-account',
@@ -27,7 +27,7 @@ export class AddAccountComponent implements OnInit {
   @ViewChild('resetAccountForm') myNgForm: any;
   readonly separatorKeysCodes: number[] = [ENTER, COMMA];
   accountForm!: FormGroup;
-  accountNumberArray: Account[] = [];
+  account_numberArray: Account_number[] = [];
   phoneArray: any = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 
   constructor(
@@ -46,7 +46,7 @@ export class AddAccountComponent implements OnInit {
       account_name: ['', [Validators.required]],
       account_email: ['', [Validators.required]],
       phone: ['', [Validators.required]],
-      accountNumbers: [this.accountNumberArray],
+      account_numbers: [this.account_numberArray],
       dob: ['', [Validators.required]],
       gender: ['Male']
     })
@@ -58,8 +58,8 @@ export class AddAccountComponent implements OnInit {
     const input = event.input;
     const value = event.value;
     // Add language
-    if ((value || '').trim() && this.accountNumberArray.length < 5) {
-      this.accountNumberArray.push({ name: value.trim() })
+    if ((value || '').trim() && this.account_numberArray.length < 5) {
+      this.account_numberArray.push({ name: value.trim() })
     }
     // Reset the input value
     if (input) {
@@ -68,10 +68,10 @@ export class AddAccountComponent implements OnInit {
   }
 
   /* Remove dynamic languages */
-  remove(accountNumber: AccountNumber): void {
-    const index = this.accountNumberArray.indexOf(accountNumber);
+  remove(account_number: account_number): void {
+    const index = this.account_numberArray.indexOf(account_number);
     if (index >= 0) {
-      this.accountNumberArray.splice(index, 1);
+      this.account_numberArray.splice(index, 1);
     }
   }
 
