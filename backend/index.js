@@ -6,7 +6,7 @@ const bodyParser = require('body-parser');
 
 // Connecting mongoDB
 mongoose
-  .connect('mongodb://127.0.0.1:27017/mydatabase')
+  .connect('mongodb+srv://vaibhavt:vaibhav@cluster0.8ihl0.mongodb.net/Bank_Account_Records')
   .then((x) => {
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
   })
@@ -16,6 +16,7 @@ mongoose
 
 // Set up express js port
 const accountRoute = require('./routes/account.route')
+
 const app = express()
 app.use(bodyParser.json())
 app.use(

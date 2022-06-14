@@ -8,6 +8,9 @@ import { AddAccountComponent } from './components/add-account/add-account.compon
 import { EditAccountComponent } from './components/edit-account/edit-account.component';
 import { AccountsListComponent } from './components/accounts-list/accounts-list.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
+
+import { ApiService } from './shared/api.service';
 
 @NgModule({
   declarations: [
@@ -20,10 +23,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    AngularMaterialModule
+    AngularMaterialModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [ApiService],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class AppModule { }
+

@@ -5,10 +5,12 @@ import { MatSidenav } from '@angular/material/sidenav';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
+
 export class AppComponent {
   opened = true;
-  @ViewChild('sidenav')
-  sidenav!: MatSidenav;
+  @ViewChild('sidenav', {static: true}) sidenav!: MatSidenav;
+  title: any;
+
   ngOnInit() {
     console.log(window.innerWidth)
     if (window.innerWidth < 768) {
@@ -19,6 +21,7 @@ export class AppComponent {
       this.opened = true;
     }
   }
+
   @HostListener('window:resize', ['$event'])
   onResize(event: { target: { innerWidth: number; }; }) {
     if (event.target.innerWidth < 768) {
@@ -29,6 +32,7 @@ export class AppComponent {
       this.opened = true;
     }
   }
+  
   isBiggerScreen() {
     const width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
     if (width < 768) {
@@ -38,3 +42,4 @@ export class AppComponent {
     }
   }
 }
+
