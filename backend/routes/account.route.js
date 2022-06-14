@@ -1,8 +1,10 @@
 const express = require('express');
 const app = express();
 const accountRoute = express.Router();
+
 // account model
 let Account = require('../model/Account');
+
 // Add account
 accountRoute.route('/add-account').post((req, res, next) => {
   Account.create(req.body, (error, data) => {
@@ -13,6 +15,7 @@ accountRoute.route('/add-account').post((req, res, next) => {
     }
   })
 });
+
 // Get all account
 accountRoute.route('/').get((req, res) => {
   Account.find((error, data) => {

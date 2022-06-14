@@ -9,6 +9,7 @@ import { EditAccountComponent } from './components/edit-account/edit-account.com
 import { AccountsListComponent } from './components/accounts-list/accounts-list.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { ApiService } from './shared/api.service';
 
@@ -24,7 +25,9 @@ import { ApiService } from './shared/api.service';
     AppRoutingModule,
     BrowserAnimationsModule,
     AngularMaterialModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [ApiService],
   bootstrap: [AppComponent],
