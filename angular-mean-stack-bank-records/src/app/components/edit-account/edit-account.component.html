@@ -1,8 +1,8 @@
 <!-- Title group  -->
 <div class="title-group">
-    <h1 class="mat-h1">Add Account</h1>
+    <h1 class="mat-h1">Edit Account</h1>
     <mat-divider fxFlex="1 0"></mat-divider>
-  </div>
+</div>
   
   <!-- Form -->
   <div class="inner-wrapper">
@@ -12,6 +12,7 @@
         <div class="controlers-wrapper">
           <!-- Name -->
           <mat-form-field class="example-full-width">
+            <mat-label>Account Name</mat-label>
             <input matInput placeholder="Account name" formControlName="account_name">
             <mat-error *ngIf="handleError('account_name', 'required')">
               You must provide a<strong>account name</strong>
@@ -20,21 +21,22 @@
   
           <!-- Email -->
           <mat-form-field class="example-full-width">
+            <mat-label>Account</mat-label>
             <input matInput placeholder="Account email" formControlName="account_email">
             <mat-error *ngIf="handleError('account_email', 'required')">
               You must provide a<strong>account email</strong>
             </mat-error>
           </mat-form-field>
   
-          <!-- phone -->
-          <mat-form-field>
-            <mat-label>Phone</mat-label>
-            <mat-select [(value)]="selected" formControlName="phone">
-              <mat-option [value]="phoneArray" *ngFor="let phoneArray of PhoneArray">{{phoneArray}}
-              </mat-option>
-            </mat-select>
-            <mat-error *ngIf="handleError('phone', 'required')">
-              Phone is required
+          <!-- Account Number -->
+        <mat-form-field class="example-full-width">
+            <mat-label>Account Number</mat-label>
+            <input
+              matInput
+              placeholder="Account Number"
+              formControlName="account_number">
+            <mat-error *ngIf="handleError('account_number', 'required')">
+              You must provide a <strong>account number</strong>
             </mat-error>
           </mat-form-field>
         </div>
@@ -43,21 +45,17 @@
       <!-- Right block -->
       <mat-card>
         <div class="controlers-wrapper">
-          <!-- Add account_numbers -->
-          <mat-form-field class="multiple-items">
-            <mat-chip-list #chipList>
-              <mat-chip *ngFor="let account_numberArray of account_numberArray" [selectable]="selectable" [removable]="removable"
-                (removed)="remove(account_numberArray)">
-                {{account_numberArray.name}}
-                <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
-              </mat-chip>
-              <input placeholder="Add account_number" [matChipInputFor]="chipList"
-                [matChipInputSeparatorKeyCodes]="separatorKeysCodes" [matChipInputAddOnBlur]="addOnBlur"
-                (matChipInputTokenEnd)="add($event)">
-            </mat-chip-list>
-            <i class="material-icons tooltip-info" matTooltip="Enter account number and press enter to add account number">
-              info
-            </i>
+          <!--Add Phone-->
+        <mat-form-field class="example-full-width">
+            <mat-label>Phone Number</mat-label>
+            <input
+              matInput
+              placeholder="Phone"
+              formControlName="phone"
+            />
+            <mat-error *ngIf="handleError('phone', 'required')">
+              You must provide <strong>account phone number</strong>
+            </mat-error>
           </mat-form-field>
   
           <!-- Date of birth -->

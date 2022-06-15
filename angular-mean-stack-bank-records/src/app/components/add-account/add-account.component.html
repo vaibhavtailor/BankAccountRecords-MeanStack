@@ -9,79 +9,65 @@
     [formGroup]="accountForm"
     (ngSubmit)="submitAccountForm()"
     #resetaccountForm="ngForm"
-    novalidate
-  >
+    novalidate>
+    
     <!-- Left block -->
     <mat-card>
       <div class="controlers-wrapper">
         <!-- Name -->
         <mat-form-field class="example-full-width">
+          <mat-label>Account Name</mat-label>
           <input
             matInput
             placeholder="Account name"
-            formControlName="account_name"
-          />
+            formControlName="account_name">
           <mat-error *ngIf="handleError('account_name', 'required')">
-            You must provide a<strong>account name</strong>
+            You must provide a <strong>account name</strong>
           </mat-error>
         </mat-form-field>
+
         <!-- Email -->
         <mat-form-field class="example-full-width">
+          <mat-label>Account Email</mat-label>
           <input
             matInput
             placeholder="Account email"
-            formControlName="account_email"
-          />
+            formControlName="account_email">
           <mat-error *ngIf="handleError('account_email', 'required')">
-            You must provide a<strong>account email</strong>
+            You must provide a <strong>account email</strong>
           </mat-error>
         </mat-form-field>
-        <!-- Phone -->
-        <mat-form-field>
-          <mat-label>Phone</mat-label>
-          <mat-select formControlName="phone">
-            <mat-option
-              [value]="phoneArray"
-              *ngFor="let phoneArray of PhoneArray"
-              >{{ phoneArray }}
-            </mat-option>
-          </mat-select>
-          <mat-error *ngIf="handleError('phone', 'required')">
-            Phone is required
+
+        <!-- Account Number -->
+        <mat-form-field class="example-full-width">
+          <mat-label>Account Number</mat-label>
+          <input
+            matInput
+            placeholder="Account Number"
+            formControlName="account_number">
+          <mat-error *ngIf="handleError('account_number', 'required')">
+            You must provide a <strong>account number</strong>
           </mat-error>
         </mat-form-field>
       </div>
     </mat-card>
+
     <!-- Right block -->
     <mat-card>
       <div class="controlers-wrapper">
-        <!-- Add account_numbers -->
-        <mat-form-field class="multiple-items">
-          <mat-chip-list #chipList>
-            <mat-chip
-              *ngFor="let account_numberArray of account_numberArray"
-              [selectable]="selectable"
-              [removable]="removable"
-              (removed)="remove(account_numberArray)"
-            >
-              {{ account_numberArray.name }}
-              <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
-            </mat-chip>
-            <input
-              placeholder="Add account_number"
-              [matChipInputFor]="chipList"
-              [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
-              [matChipInputAddOnBlur]="addOnBlur"
-              (matChipInputTokenEnd)="add($event)"
-            />
-          </mat-chip-list>
-          <i
-            class="material-icons tooltip-info"
-            matTooltip="Enter account_number name and press enter to add account_numbers"
-          >
-            info
-          </i>
+        <!--Add Phone-->
+        <mat-form-field class="example-full-width">
+          <mat-label>Phone Number</mat-label>
+          <input
+            matInput
+            placeholder="Phone"
+            formControlName="phone"
+          />
+          <mat-error *ngIf="handleError('phone', 'required')">
+            You must provide <strong>account phone number</strong>
+          </mat-error>
         </mat-form-field>
+
         <!-- Date of birth -->
         <mat-form-field>
           <input
@@ -94,26 +80,27 @@
           />
           <mat-datepicker-toggle
             matSuffix
-            [for]="picker"
-          ></mat-datepicker-toggle>
+            [for]="picker">
+          </mat-datepicker-toggle>
           <mat-datepicker #picker></mat-datepicker>
           <mat-error *ngIf="handleError('dob', 'required')">
             Date of birth is required
           </mat-error>
         </mat-form-field>
+
         <!-- Gender -->
         <div class="misc-bottom-padding">
           <mat-label>Gender:</mat-label>
           <mat-radio-group
             aria-label="Select an option"
-            formControlName="gender"
-          >
+            formControlName="gender">
             <mat-radio-button value="Male">Male</mat-radio-button>
             <mat-radio-button value="Female">Female</mat-radio-button>
           </mat-radio-group>
         </div>
       </div>
     </mat-card>
+    
     <!-- Submit & Reset -->
     <mat-card>
       <div class="full-wrapper button-wrapper">

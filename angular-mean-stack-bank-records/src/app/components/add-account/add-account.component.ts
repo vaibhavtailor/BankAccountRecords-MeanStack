@@ -9,7 +9,7 @@ export interface Account_number {
   name: string;
 }
 
-type account_number = any
+//type Account_number =  any
 
 @Component({
   selector: 'app-add-account',
@@ -27,8 +27,8 @@ export class AddAccountComponent implements OnInit {
   @ViewChild('resetAccountForm') myNgForm: any;
   readonly separatorKeysCodes: number[] = [ENTER, COMMA];
   accountForm!: FormGroup;
-  account_numberArray: Account_number[] = [];
-  phoneArray: any = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+  // account_numberArray: Account_number[] = [];
+  // phoneArray: any = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 
   constructor(
     public fb: FormBuilder,
@@ -38,15 +38,15 @@ export class AddAccountComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.submitDetailFrom();
+    this.submitDetailForm();
   }
 
-  submitDetailFrom() {
+  submitDetailForm() {
     this.accountForm = this.fb.group({
       account_name: ['', [Validators.required]],
       account_email: ['', [Validators.required]],
-      phone: ['', [Validators.required]],
-      account_numbers: [this.account_numberArray],
+      account_number: ['', [Validators.required]],
+      phone: ['', [Validators.required]],      
       dob: ['', [Validators.required]],
       gender: ['Male']
     })
@@ -54,26 +54,26 @@ export class AddAccountComponent implements OnInit {
 
 
   /* Add dynamic languages */
-  add(event: MatChipInputEvent): void {
-    const input = event.input;
-    const value = event.value;
-    // Add language
-    if ((value || '').trim() && this.account_numberArray.length < 5) {
-      this.account_numberArray.push({ name: value.trim() })
-    }
-    // Reset the input value
-    if (input) {
-      input.value = '';
-    }
-  }
+  // add(event: MatChipInputEvent): void {
+  //   const input = event.input;
+  //   const value = event.value;
+  //   // Add language
+  //   if ((value || '').trim() && this.account_numberArray.length < 5) {
+  //     this.account_numberArray.push({ name: value.trim() })
+  //   }
+  //   // Reset the input value
+  //   if (input) {
+  //     input.value = '';
+  //   }
+  // }
 
-  /* Remove dynamic languages */
-  remove(account_number: account_number): void {
-    const index = this.account_numberArray.indexOf(account_number);
-    if (index >= 0) {
-      this.account_numberArray.splice(index, 1);
-    }
-  }
+  // /* Remove dynamic languages */
+  // remove(accountNumber: AccountNumber): void {
+  //   const index = this.account_numberArray.indexOf(accountNumber);
+  //   if (index >= 0) {
+  //     this.account_numberArray.splice(index, 1);
+  //   }
+  // }
 
   /* Date */
   formatDate(e: any) {

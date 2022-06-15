@@ -1,15 +1,16 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+
 // Define collection and schema
-let account = new Schema({
+let Account = new Schema({
   account_name: {
+    type: String
+  },
+  account_email: {
     type: String
   },
   account_number: {
     type: Number
-  },
-  account_email: {
-    type: String
   },
   phone: {
     type: Number
@@ -22,6 +23,7 @@ let account = new Schema({
   }
   
 }, {
-  collection: 'accounts'
+  collection: 'AccountDetails'
 })
+
 module.exports = mongoose.model('Account', Account)

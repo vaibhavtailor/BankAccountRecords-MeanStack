@@ -20,11 +20,11 @@ export class AccountsListComponent implements OnInit {
     'account_name',
     'account_email',
     'phone',
-    'action',
+    'action'
   ];
 
   constructor(private accountApi: ApiService) {
-    this.accountApi.GetAccounts().subscribe((data) => {
+    this.accountApi.GetAccounts().subscribe(data => {
       this.AccountData = data;
       this.dataSource = new MatTableDataSource<Account>(this.AccountData);
       setTimeout(() => {

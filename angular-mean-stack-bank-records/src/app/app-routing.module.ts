@@ -7,7 +7,7 @@ import { AccountsListComponent } from './components/accounts-list/accounts-list.
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'add-account'},
   { path: 'add-account', component: AddAccountComponent},
-  { path: 'edit-account', component: EditAccountComponent},
+  { path: 'edit-account/:id', component: EditAccountComponent},
   { path: 'accounts-list', component: AccountsListComponent}
 ];
 

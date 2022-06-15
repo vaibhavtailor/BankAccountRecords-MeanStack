@@ -4,7 +4,7 @@
     <mat-divider fxFlex="1 0"></mat-divider>
   </div>
   
-  <p *ngIf="AccountData.length <= 0" class="no-data">There is no account added yet!</p>
+  <!--<p *ngIf="AccountData.length <= 0" class="no-data">There is no account added yet!</p>-->
   
   <div class="container" *ngIf="AccountData.length > 0">
     <div class="mat-elevation-z8">
@@ -34,7 +34,7 @@
           <td mat-cell *matCellDef="let element; let i = index;">
             <button mat-raised-button color="primary" class="push-right"
               [routerLink]="['/edit-account/', element._id]">Edit</button>
-            <button mat-raised-button color="accent" (click)="deleteaccount(i, element)">Delete</button>
+            <button mat-raised-button color="accent" (click)="deleteAccount(i, element)">Delete</button>
           </td>
         </ng-container>
   
