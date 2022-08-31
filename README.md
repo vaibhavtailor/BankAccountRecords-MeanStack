@@ -1,6 +1,5 @@
 # BankAccountRecords-MeanStack
-# Assignment 2 Group number:17 
-# Group Members: Vaibhav Tailor, Bhavya Chaudhary, Arpan shekhada
+# Made by: Vaibhav Tailor
 
 MongoDb- Data
 ![MngoDb-data](https://user-images.githubusercontent.com/97706544/173935373-7ee40342-47ed-4980-add8-840047548833.jpeg)
